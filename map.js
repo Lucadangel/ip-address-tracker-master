@@ -10,6 +10,7 @@ var initialLng = -0.09;
 
 var map = L.map('map').setView([initialLat, initialLng], 13);
 
+
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 13,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -17,7 +18,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 var marker = L.marker([initialLat, initialLng]).addTo(map);
 
-// Function to update map center and marker position
+
 function updateMapAndMarker(newLat, newLng) {
     map.setView([newLat, newLng]); 
     marker.setLatLng([newLat, newLng]); 
@@ -36,10 +37,10 @@ function displayData(data) {
     newLat = data.location.lat;
     newLng = data.location.lng;
     
-    // Update map and marker with new coordinates
+
     updateMapAndMarker(newLat, newLng);
 }
-
+//fetch
 async function fetchData(ipAddress) {
     try {
         const apiUrl = `https://geo.ipify.org/api/v2/country,city?apiKey=at_mAaKhetBvOEkxSEfOU69OyXCgZyO4&ipAddress=${ipAddress}`;
@@ -69,4 +70,6 @@ elements.forEach(function(element) {
     element.style.fontWeight = 'bold';
 });
 
- 
+
+var icon = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"11\" height=\"14\"><path fill=\"none\" stroke=\"#FFF\" stroke-width=\"3\" d=\"M2 1l6 6-6 6\"/></svg>";
+
